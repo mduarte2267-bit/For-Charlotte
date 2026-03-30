@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secret Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      background: #1e293b;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    input {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 15px;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      cursor: pointer;
+    }
+
+    #secretContent {
+      display: none;
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .error {
+      color: #f87171;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Enter the Code</h1>
+    <input type="text" id="codeInput" placeholder="Enter code...">
+    <br>
+    <button onclick="checkCode()">Enter</button>
+    <p class="error" id="errorMsg"></p>
+
+    <div id="secretContent">
+      <h2>🎉 You got it!</h2>
+      <p id="secretText">Your next clue goes here...</p>
+      <img id="secretImage" src="" alt="Secret Image">
+    </div>
+  </div>
+
+  <script>
+    const correctCode = "1234"; // CHANGE THIS
+
+    function checkCode() {
+      const input = document.getElementById("codeInput").value;
+      const errorMsg = document.getElementById("errorMsg");
+      const secret = document.getElementById("secretContent");
+
+      if (input === correctCode) {
+        secret.style.display = "block";
+        errorMsg.textContent = "";
+      } else {
+        errorMsg.textContent = "Wrong code. Try again.";
+      }
+    }
+
+    // Allow Enter key
+    document.getElementById("codeInput").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        checkCode();
+      }
+    });
+
+    // CUSTOMIZE THESE
+    document.getElementById("secretText").textContent = "Go to where we first met.";
+    document.getElementById("secretImage").src = "https://via.placeholder.com/300";
+  </script>
+</body>
+</html>
