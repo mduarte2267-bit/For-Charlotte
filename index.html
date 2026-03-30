@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: #000000;
       color: white;
       display: flex;
       justify-content: center;
@@ -17,7 +17,7 @@
     }
 
     .container {
-      background: #1e293b;
+      background: #3e40b3;
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -39,7 +39,7 @@
       font-size: 16px;
       border: none;
       border-radius: 8px;
-      background: #38bdf8;
+      background: #3e5db3;
       cursor: pointer;
     }
 
@@ -62,21 +62,21 @@
 </head>
 <body>
   <div class="container">
-    <h1>Enter the Code</h1>
-    <input type="text" id="codeInput" placeholder="Enter code...">
+    <h1>Hi Charlotte</h1>
+    <input type="text" id="codeInput" placeholder="Type">
     <br>
-    <button onclick="checkCode()">Enter</button>
+    <button onclick="checkCode()">Submit</button>
     <p class="error" id="errorMsg"></p>
 
     <div id="secretContent">
-      <h2>🎉 You got it!</h2>
-      <p id="secretText">Your next clue goes here...</p>
+      <h2> Correct! </h2>
+      <p id="secretText">I Love You </p>
       <img id="secretImage" src="" alt="Secret Image">
     </div>
   </div>
 
   <script>
-    const correctCode = "1234"; // CHANGE THIS
+    const correctCode = "Charlotte"; // CHANGE THIS
 
     function checkCode() {
       const input = document.getElementById("codeInput").value;
@@ -87,7 +87,7 @@
         secret.style.display = "block";
         errorMsg.textContent = "";
       } else {
-        errorMsg.textContent = "Wrong code. Try again.";
+        errorMsg.textContent = "Wrong, Try Again.";
       }
     }
 
@@ -99,7 +99,7 @@
     });
 
     // CUSTOMIZE THESE
-    document.getElementById("secretText").textContent = "Go to where we first met.";
+    document.getElementById("secretText").textContent = "I love You";
     document.getElementById("secretImage").src = "https://via.placeholder.com/300";
   </script>
 </body>
