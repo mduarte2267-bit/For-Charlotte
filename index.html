@@ -13,12 +13,12 @@
     }
 
     .box {
-      background: #265ab5;
+      background: #000000;
       padding: 30px;
       border-radius: 0px;
       max-width: 500px;
       margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 0 0px rgba(0,0,0,0);
     }
 
     input {
@@ -26,16 +26,6 @@
       width: 70%;
       border-radius: 0px;
       border: none;
-      margin-top: 10px;
-    }
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 0px;
-      background: #3026b5;
-      color: white;
-      cursor: pointer;
       margin-top: 10px;
     }
 
@@ -47,32 +37,26 @@
 <body>
 
 <div class="box">
-  <h1>Code1</h1>
+  <h1>Password 1</h1>
   <input id="codeInput1" type="text" placeholder="Enter">
-  <br>
-  <button onclick="checkCode1()">Submit</button>
 
   <div id="clue1" class="hidden">
-    <h2>Clue1</h2>
-    <p>Your next clue: "Clue2"</p>
+    <h2>Clue 1 Revealed</h2>
+    <p>Clue 1 Showing"</p>
 
     <input id="codeInput2" type="text" placeholder="Enter">
-    <br>
-    <button onclick="checkCode2()">Submit</button>
   </div>
 
   <div id="clue2" class="hidden">
-    <h2>Clue2</h2>
-    <p>Your next clue: "Clue2"</p>
+    <h2>Clue 2 Revealed</h2>
+    <p>Clue 2 Showing"</p>
 
     <input id="codeInput3" type="text" placeholder="Enter">
-    <br>
-    <button onclick="checkCode3()">Submit</button>
   </div>
 
-  <div id="clue4" class="hidden">
-    <h1>clue4</h1>
-    <p>clue4</p>
+  <div id="finalPage" class="hidden">
+    <h1>Clue 3 Revealed</h1>
+    <p>Clue 3 Showing</p>
   </div>
 </div>
 
@@ -81,8 +65,9 @@
     const input = document.getElementById("codeInput1").value.toLowerCase();
     if (input === "firstcode") {
       document.getElementById("clue1").classList.remove("hidden");
+      document.getElementById("codeInput2").focus();
     } else {
-      alert("Incorect Code");
+      alert("Incorect, Try Again");
     }
   }
 
@@ -90,8 +75,9 @@
     const input = document.getElementById("codeInput2").value.toLowerCase();
     if (input === "secondcode") {
       document.getElementById("clue2").classList.remove("hidden");
+      document.getElementById("codeInput3").focus();
     } else {
-      alert("Incorect Code");
+      alert("Incorect, Try Again");
     }
   }
 
@@ -100,11 +86,26 @@
     if (input === "finalcode") {
       document.getElementById("finalPage").classList.remove("hidden");
     } else {
-      alert("Incorect Code");
+      alert("Incorect, Try Again");
     }
   }
+
+  // ENTER KEY LISTENERS
+  document.getElementById("codeInput1").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      checkCode1();
+    }
+  });
+
+  document.addEventListener("keypress", function(e) {
+    if (e.target.id === "codeInput2" && e.key === "Enter") {
+      checkCode2();
+    }
+    if (e.target.id === "codeInput3" && e.key === "Enter") {
+      checkCode3();
+    }
+  });
 </script>
 
 </body>
 </html>
-
