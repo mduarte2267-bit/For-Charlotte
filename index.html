@@ -6,16 +6,16 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: #000000;
       color: white;
       text-align: center;
       padding: 40px;
     }
 
     .box {
-      background: #1e293b;
+      background: #265ab5;
       padding: 30px;
-      border-radius: 15px;
+      border-radius: 0px;
       max-width: 500px;
       margin: auto;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
@@ -24,7 +24,7 @@
     input {
       padding: 10px;
       width: 70%;
-      border-radius: 10px;
+      border-radius: 0px;
       border: none;
       margin-top: 10px;
     }
@@ -32,8 +32,8 @@
     button {
       padding: 10px 20px;
       border: none;
-      border-radius: 10px;
-      background: #ec4899;
+      border-radius: 0px;
+      background: #3026b5;
       color: white;
       cursor: pointer;
       margin-top: 10px;
@@ -47,32 +47,32 @@
 <body>
 
 <div class="box">
-  <h1>Enter Your Code 💌</h1>
-  <input id="codeInput1" type="text" placeholder="Enter first code">
+  <h1>Code1</h1>
+  <input id="codeInput1" type="text" placeholder="Enter">
   <br>
   <button onclick="checkCode1()">Submit</button>
 
   <div id="clue1" class="hidden">
-    <h2>Clue 1 Revealed ❤️</h2>
-    <p>Your next clue: "Where we first laughed together"</p>
+    <h2>Clue1</h2>
+    <p>Your next clue: "Clue2"</p>
 
-    <input id="codeInput2" type="text" placeholder="Enter second code">
+    <input id="codeInput2" type="text" placeholder="Enter">
     <br>
     <button onclick="checkCode2()">Submit</button>
   </div>
 
   <div id="clue2" class="hidden">
-    <h2>Clue 2 Revealed 💖</h2>
-    <p>Your next clue: "The place we couldn't stop smiling"</p>
+    <h2>Clue2</h2>
+    <p>Your next clue: "Clue2"</p>
 
-    <input id="codeInput3" type="text" placeholder="Enter third code">
+    <input id="codeInput3" type="text" placeholder="Enter">
     <br>
     <button onclick="checkCode3()">Submit</button>
   </div>
 
-  <div id="finalPage" class="hidden">
-    <h1>🎉 You Made It! 🎉</h1>
-    <p>This is the next part of your scavenger hunt...</p>
+  <div id="clue4" class="hidden">
+    <h1>clue4</h1>
+    <p>clue4</p>
   </div>
 </div>
 
@@ -82,7 +82,7 @@
     if (input === "firstcode") {
       document.getElementById("clue1").classList.remove("hidden");
     } else {
-      alert("Wrong code, try again 💔");
+      alert("Incorect Code");
     }
   }
 
@@ -91,7 +91,7 @@
     if (input === "secondcode") {
       document.getElementById("clue2").classList.remove("hidden");
     } else {
-      alert("Not quite... think again 💭");
+      alert("Incorect Code");
     }
   }
 
@@ -100,7 +100,7 @@
     if (input === "finalcode") {
       document.getElementById("finalPage").classList.remove("hidden");
     } else {
-      alert("Almost there... try again ❤️");
+      alert("Incorect Code");
     }
   }
 </script>
