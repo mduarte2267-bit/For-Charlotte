@@ -2,105 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Secret Page</title>
+  <title>Scavenger Hunt</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #000000;
+      background: #0f172a;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
       text-align: center;
+      padding: 40px;
     }
 
-    .container {
-      background: #3e40b3;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    .box {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
     input {
       padding: 10px;
-      font-size: 18px;
-      border-radius: 8px;
+      width: 70%;
+      border-radius: 10px;
       border: none;
-      margin-top: 15px;
-      width: 200px;
-      text-align: center;
+      margin-top: 10px;
     }
 
     button {
-      margin-top: 15px;
       padding: 10px 20px;
-      font-size: 16px;
       border: none;
-      border-radius: 8px;
-      background: #3e5db3;
-      cursor: pointer;
-    }
-
-    #secretContent {
-      display: none;
-      margin-top: 20px;
-    }
-
-    img {
-      max-width: 300px;
       border-radius: 10px;
+      background: #ec4899;
+      color: white;
+      cursor: pointer;
       margin-top: 10px;
     }
 
-    .error {
-      color: #f87171;
-      margin-top: 10px;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hi Charlotte</h1>
-    <input type="text" id="codeInput" placeholder="Type">
-    <br>
-    <button onclick="checkCode()">Submit</button>
-    <p class="error" id="errorMsg"></p>
 
-    <div id="secretContent">
-      <h2> Correct! </h2>
-      <p id="secretText">I Love You </p>
-      <img id="secretImage" src="" alt="Secret Image">
-    </div>
+<div class="box">
+  <h1>Enter Your Code 💌</h1>
+  <input id="codeInput1" type="text" placeholder="Enter first code">
+  <br>
+  <button onclick="checkCode1()">Submit</button>
+
+  <div id="clue1" class="hidden">
+    <h2>Clue 1 Revealed ❤️</h2>
+    <p>Your next clue: "Where we first laughed together"</p>
+
+    <input id="codeInput2" type="text" placeholder="Enter second code">
+    <br>
+    <button onclick="checkCode2()">Submit</button>
   </div>
 
-  <script>
-    const correctCode = "Charlotte"; // CHANGE THIS
+  <div id="clue2" class="hidden">
+    <h2>Clue 2 Revealed 💖</h2>
+    <p>Your next clue: "The place we couldn't stop smiling"</p>
 
-    function checkCode() {
-      const input = document.getElementById("codeInput").value;
-      const errorMsg = document.getElementById("errorMsg");
-      const secret = document.getElementById("secretContent");
+    <input id="codeInput3" type="text" placeholder="Enter third code">
+    <br>
+    <button onclick="checkCode3()">Submit</button>
+  </div>
 
-      if (input === correctCode) {
-        secret.style.display = "block";
-        errorMsg.textContent = "";
-      } else {
-        errorMsg.textContent = "Wrong, Try Again.";
-      }
+  <div id="finalPage" class="hidden">
+    <h1>🎉 You Made It! 🎉</h1>
+    <p>This is the next part of your scavenger hunt...</p>
+  </div>
+</div>
+
+<script>
+  function checkCode1() {
+    const input = document.getElementById("codeInput1").value.toLowerCase();
+    if (input === "firstcode") {
+      document.getElementById("clue1").classList.remove("hidden");
+    } else {
+      alert("Wrong code, try again 💔");
     }
+  }
 
-    // Allow Enter key
-    document.getElementById("codeInput").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
-        checkCode();
-      }
-    });
+  function checkCode2() {
+    const input = document.getElementById("codeInput2").value.toLowerCase();
+    if (input === "secondcode") {
+      document.getElementById("clue2").classList.remove("hidden");
+    } else {
+      alert("Not quite... think again 💭");
+    }
+  }
 
-    // CUSTOMIZE THESE
-    document.getElementById("secretText").textContent = "I love You";
-    document.getElementById("secretImage").src = "https://via.placeholder.com/300";
-  </script>
+  function checkCode3() {
+    const input = document.getElementById("codeInput3").value.toLowerCase();
+    if (input === "finalcode") {
+      document.getElementById("finalPage").classList.remove("hidden");
+    } else {
+      alert("Almost there... try again ❤️");
+    }
+  }
+</script>
+
 </body>
 </html>
+
