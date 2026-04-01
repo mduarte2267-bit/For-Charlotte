@@ -6,7 +6,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #000000;
+      background: url('your-background.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       text-align: center;
       padding: 40px;
@@ -37,6 +38,13 @@
     .hidden {
       display: none;
     }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
@@ -50,6 +58,9 @@
     <h2>Clue 1 Revealed ❤️</h2>
     <p>Your next clue: "Where we first laughed together"</p>
 
+    <!-- IMAGE FOR CLUE 1 -->
+    <img src="your-image-1.jpg" alt="Memory 1">
+
     <input id="codeInput2" type="text" placeholder="Enter Second Code">
     <p id="error2" class="error"></p>
   </div>
@@ -58,12 +69,19 @@
     <h2>Clue 2 Revealed 💖</h2>
     <p>Your next clue: "The place we couldn't stop smiling"</p>
 
+    <!-- IMAGE FOR CLUE 2 -->
+    <img src="your-image-2.jpg" alt="Memory 2">
+
     <input id="codeInput3" type="text" placeholder="Enter third code">
     <p id="error3" class="error"></p>
   </div>
 
   <div id="finalPage" class="hidden">
     <h1>🎉 You Made It! 🎉</h1>
+
+    <!-- FINAL IMAGE -->
+    <img src="your-final-image.jpg" alt="Final Memory">
+
     <p>This is the next part of your scavenger hunt...</p>
   </div>
 </div>
@@ -93,7 +111,7 @@
 
   function checkCode3() {
     const input = document.getElementById("codeInput3").value.toLowerCase();
-    if (input === "Thirdcode") {
+    if (input === "thirdcode") {
       document.getElementById("finalPage").classList.remove("hidden");
       document.getElementById("error3").textContent = "";
     } else {
@@ -120,3 +138,4 @@
 
 </body>
 </html>
+
