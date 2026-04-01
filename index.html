@@ -6,19 +6,19 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: #000000;
       color: white;
       text-align: center;
       padding: 40px;
     }
 
     .box {
-      background: #1e293b;
+      background: #000000;
       padding: 30px;
-      border-radius: 15px;
+      border-radius: 0px;
       max-width: 500px;
       margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 0 0px rgba(0,0,0,0);
     }
 
     input {
@@ -42,15 +42,15 @@
 <body>
 
 <div class="box">
-  <h1>Enter Your Code 💌</h1>
-  <input id="codeInput1" type="text" placeholder="Enter first code">
+  <h1>hi charlotte my love, if you’re reading this it means you’ve reached the first part of this thing i made just for you! This message is the beginning of what I hope is an enjoyable little scavenger hunt filled with pieces of us, our memories, and reasons why I love you! I believe you’ll find the clue within this text leading you to the next one, good luck!!</h1>
+  <input id="codeInput1" type="text" placeholder="Enter Code">
   <p id="error1" class="error"></p>
 
   <div id="clue1" class="hidden">
     <h2>Clue 1 Revealed ❤️</h2>
     <p>Your next clue: "Where we first laughed together"</p>
 
-    <input id="codeInput2" type="text" placeholder="Enter second code">
+    <input id="codeInput2" type="text" placeholder="Enter Second Code">
     <p id="error2" class="error"></p>
   </div>
 
@@ -76,7 +76,7 @@
       document.getElementById("codeInput2").focus();
       document.getElementById("error1").textContent = "";
     } else {
-      document.getElementById("error1").textContent = "Incorrect, try again 💔";
+      document.getElementById("error1").textContent = "Incorrect Code, try again";
     }
   }
 
@@ -87,17 +87,17 @@
       document.getElementById("codeInput3").focus();
       document.getElementById("error2").textContent = "";
     } else {
-      document.getElementById("error2").textContent = "Incorrect, try again 💭";
+      document.getElementById("error2").textContent = "Incorrect Code, try again";
     }
   }
 
   function checkCode3() {
     const input = document.getElementById("codeInput3").value.toLowerCase();
-    if (input === "finalcode") {
+    if (input === "Thirdcode") {
       document.getElementById("finalPage").classList.remove("hidden");
       document.getElementById("error3").textContent = "";
     } else {
-      document.getElementById("error3").textContent = "Almost there... try again ❤️";
+      document.getElementById("error3").textContent = "Incorrect Code, try again";
     }
   }
 
