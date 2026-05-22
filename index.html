@@ -5,6 +5,7 @@
 <title>Scavenger Hunt</title>
 
 <style>
+
   body {
     font-family: Arial, sans-serif;
     background: url('Untitled design.jpg') no-repeat center center fixed;
@@ -78,13 +79,6 @@
     }
   }
 
-  img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 15px;
-    margin-top: 20px;
-  }
-
   .shake {
     animation: shake 0.3s;
   }
@@ -96,6 +90,19 @@
     75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
   }
+
+  /* HIDDEN HIGHLIGHT CLUE */
+
+  .hidden-clue {
+    color: white;
+    user-select: text;
+  }
+
+  .hidden-clue::selection {
+    background: #cb244c;
+    color: white;
+  }
+
 </style>
 </head>
 
@@ -104,49 +111,68 @@
 <div class="box">
 
   <h1>
-    hi charlotte my love, if you’re reading this it means you’ve reached the first part of this thing i made just for you! This message is the beginning of what I hope is an enjoyable little scavenger hunt filled with pieces of us, our memories, and reasons why I love you! I believe you’ll find the clue within this text leading you to the next one, good luck!!
+    hi charlotte my love, if you’re reading this it means you’ve reached the first part of this thing i made just for you! This message is the beginning of what I hope is an enjoyable little scavenger hunt filled with pieces of us, our memories, and reasons why I love you!
+
+    <span class="hidden-clue">
+      the first clue is hidden right here if you highlight this text ❤️
+    </span>
   </h1>
 
   <input id="codeInput1" type="text" placeholder="Enter Code">
   <br>
-  <button onclick="checkCode1()">Unlock ❤️</button>
+  <button onclick="checkCode1()">Enter</button>
   <p id="error1" class="error"></p>
 
   <!-- CLUE 1 -->
-  <div id="clue1" class="hidden">
-    <h2>Clue 1 Revealed ❤️</h2>
-    <p>Your next clue: "Where we first laughed together"</p>
 
-    <img src="your-image-1.jpg" alt="Memory 1">
+  <div id="clue1" class="hidden">
+
+    <h2>Clue 1 Revealed ❤️</h2>
+
+    <p>
+      Your next clue: "Where we first laughed together"
+    </p>
 
     <input id="codeInput2" type="text" placeholder="Enter Second Code">
+
     <br>
-    <button onclick="checkCode2()">Unlock ❤️</button>
+
+    <button onclick="checkCode2()">Enter</button>
+
     <p id="error2" class="error"></p>
+
   </div>
 
   <!-- CLUE 2 -->
-  <div id="clue2" class="hidden">
-    <h2>Clue 2 Revealed 💖</h2>
-    <p>Your next clue: "The place we couldn't stop smiling"</p>
 
-    <img src="your-image-2.jpg" alt="Memory 2">
+  <div id="clue2" class="hidden">
+
+    <h2>Clue 2 Revealed 💖</h2>
+
+    <p>
+      Your next clue: "The place we couldn't stop smiling"
+    </p>
 
     <input id="codeInput3" type="text" placeholder="Enter Third Code">
+
     <br>
-    <button onclick="checkCode3()">Unlock ❤️</button>
+
+    <button onclick="checkCode3()">Enter</button>
+
     <p id="error3" class="error"></p>
+
   </div>
 
   <!-- FINAL PAGE -->
-  <div id="finalPage" class="hidden">
-    <h1>🎉 You Made It! 🎉</h1>
 
-    <img src="your-final-image.jpg" alt="Final Memory">
+  <div id="finalPage" class="hidden">
+
+    <h1>🎉 You Made It! 🎉</h1>
 
     <p>
       This is the next part of your scavenger hunt...
     </p>
+
   </div>
 
 </div>
@@ -154,57 +180,91 @@
 <script>
 
 function reveal(elementId) {
+
   const element = document.getElementById(elementId);
+
   element.classList.remove("hidden");
+
   element.classList.add("fade-in");
+
 }
 
 function wrong(inputId) {
+
   const input = document.getElementById(inputId);
 
   input.classList.add("shake");
 
   setTimeout(() => {
+
     input.classList.remove("shake");
+
   }, 300);
+
 }
 
 function checkCode1() {
+
   const input = document.getElementById("codeInput1").value.toLowerCase();
 
   if (input === "firstcode") {
+
     reveal("clue1");
+
     document.getElementById("error1").textContent = "";
+
     document.getElementById("codeInput2").focus();
+
   } else {
+
     document.getElementById("error1").textContent = "Incorrect Code, try again ❤️";
+
     wrong("codeInput1");
+
   }
+
 }
 
 function checkCode2() {
+
   const input = document.getElementById("codeInput2").value.toLowerCase();
 
   if (input === "secondcode") {
+
     reveal("clue2");
+
     document.getElementById("error2").textContent = "";
+
     document.getElementById("codeInput3").focus();
+
   } else {
+
     document.getElementById("error2").textContent = "Incorrect Code, try again ❤️";
+
     wrong("codeInput2");
+
   }
+
 }
 
 function checkCode3() {
+
   const input = document.getElementById("codeInput3").value.toLowerCase();
 
   if (input === "thirdcode") {
+
     reveal("finalPage");
+
     document.getElementById("error3").textContent = "";
+
   } else {
+
     document.getElementById("error3").textContent = "Incorrect Code, try again ❤️";
+
     wrong("codeInput3");
+
   }
+
 }
 
 /* ENTER KEY SUPPORT */
@@ -212,15 +272,21 @@ function checkCode3() {
 document.addEventListener("keypress", function(e) {
 
   if (e.target.id === "codeInput1" && e.key === "Enter") {
+
     checkCode1();
+
   }
 
   if (e.target.id === "codeInput2" && e.key === "Enter") {
+
     checkCode2();
+
   }
 
   if (e.target.id === "codeInput3" && e.key === "Enter") {
+
     checkCode3();
+
   }
 
 });
